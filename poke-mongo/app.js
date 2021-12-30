@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');  // to extract request bodies
 
 mongoose
-  .connect("mongodb://localhost:27017/pokemongo", {
+  .connect("mongodb://127.0.0.1:27017/pokemongo", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
