@@ -10,7 +10,7 @@ function Navbar() {
 
 
 const navStyle = {
-    color: 'white'
+    color: 'black'
 }
 
   return (

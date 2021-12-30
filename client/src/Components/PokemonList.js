@@ -1,9 +1,19 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import DeletePokemon from './DeletePokemon.js'
+import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
-function PokemonList() {
+
+function PokemonList()
+
+{
+  const navStyle = {
+    color: 'white'
+  }
+  
 useEffect(() => {
   fetchItems()
 
@@ -18,10 +28,18 @@ const fetchItems = async () => {
   console.log(items);
 }
     return (
-
+     
+<div>
       <h1> View pokemon
 
-      </h1>
+      </h1>  
+       <Link  to="/DeletePokemon">Delete the Pokemon</Link>
+
+       <Link    to="/FilterPokemon">Filter Pokemons</Link>
+
+       <Link    to="/">Home Page</Link>
+      
+       </div>
 
     );
 

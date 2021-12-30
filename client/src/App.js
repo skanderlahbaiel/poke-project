@@ -9,6 +9,8 @@ import PokemonList from './Components/PokemonList.js';
 import AddNewPokemon from './Components/AddNewPokemon.js';
 
 import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom';
+import DeletePokemon from './Components/DeletePokemon.js';
+import FilterPokemon from './Components/FilterPokemon.js';
 
 
 
@@ -22,7 +24,10 @@ function App() {
      <Routes>
      <Route path='/AddNewPokemons' element={<AddNewPokemon/>}/>
      <Route path='/Viewpokemons' element={<PokemonList/>}/>
-    '</Routes>
+     <Route path='/DeletePokemon' element={<DeletePokemon/>}/>
+     <Route path='/FilterPokemon' element={<FilterPokemon/>}/>
+   
+    </Routes>
      
      
 

@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 
 
 
-
-function AddNewPokemon() {
+function DeletePokemon() {
 
   return (
 
-    <div className="AddNewPokemon">
+    <div className="DeletePokemon">
 
-      <h1>Add New Pokemon</h1>
+      <h1>Delete Pokemon</h1>
       <Link    to="/">Home Page</Link>
 
     </div>
@@ -22,4 +21,4 @@ function AddNewPokemon() {
 
 
 
-export default AddNewPokemon;
+export default DeletePokemon;
