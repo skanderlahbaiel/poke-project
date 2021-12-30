@@ -11,6 +11,7 @@ import AddNewPokemon from './Components/AddNewPokemon.js';
 import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom';
 import DeletePokemon from './Components/DeletePokemon.js';
 import FilterPokemon from './Components/FilterPokemon.js';
+import EditPokemon from './Components/EditPokemon.js';
 
 
 
@@ -26,6 +27,7 @@ function App() {
      <Route path='/Viewpokemons' element={<PokemonList/>}/>
      <Route path='/DeletePokemon' element={<DeletePokemon/>}/>
      <Route path='/FilterPokemon' element={<FilterPokemon/>}/>
+     <Route path='/EditPokemon' element={<EditPokemon/>}/>
    
     </Routes>
      

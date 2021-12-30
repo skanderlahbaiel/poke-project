@@ -3,11 +3,15 @@ import {useState, useEffect} from 'react';
 import DeletePokemon from './DeletePokemon.js'
 import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import PokemonRouter from'./pokemon/pokemonRouter.js'
 
 
 
 
 function PokemonList()
+
+
+
 
 {
   const navStyle = {

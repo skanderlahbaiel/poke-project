@@ -2,7 +2,7 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 
-const Pokemon = require('/Users/macbookpro/Documents/GitHub/final-projects/poke-mongo/server/resources/pokemon/pokemon.js');
+const Pokemon = require('./pokemon.js');
 
 exports.get_pokemon = function(req, res, next) {
     Pokemon.find()

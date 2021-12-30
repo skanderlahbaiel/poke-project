@@ -29,6 +29,7 @@ const navStyle = {
                  <Link style={navStyle} to="/Viewpokemons">View Pokemons</Link>
                  
                  <Link style={navStyle} to="/AddNewPokemons">Add New Pokemon</Link>
+                 <Link style={navStyle} to= "/EditPokemon">Edit a Pokemon</Link>
            
 
            

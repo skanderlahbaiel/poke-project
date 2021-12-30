@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();  // to manage routes
 
-const pokemonController = require('/Users/macbookpro/Documents/GitHub/final-projects/poke-mongo/server/resources/pokemon/pokemonController.js');
-const Pokemon = require('/Users/macbookpro/Documents/GitHub/final-projects/poke-mongo/server/resources/pokemon/pokemon.js');
+const pokemonController = require('./pokemonController.js');
+const Pokemon = require('./pokemon.js');
 
 
 router.get('/', pokemonController.get_pokemon);

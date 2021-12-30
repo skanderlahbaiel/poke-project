@@ -4,9 +4,20 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');  // to extract request bodies
 
-mongoose.connect('mongodb+srv://rayan:azerty123@bbkar-project.smvmj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+mongoose
+  .connect("mongodb://localhost:27017/pokemongo", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to MongoDB...");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-const pokemonRoutes = require('/Users/macbookpro/Documents/GitHub/final-projects/poke-mongo/server/resources/pokemon/pokemonRouter.js');
+
+const pokemonRoutes = require('./server/resources/pokemon/pokemonRouter.js');
 
 
 app.use(morgan('dev'));

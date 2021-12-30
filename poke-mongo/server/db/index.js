@@ -1,6 +1,16 @@
 const mongoose = require ('mongoose');
 
 
-mongoose.connect('mongodb+srv://rayan:azerty123@cluster0.f8ili.mongodb.net/Pokemon?retryWrites=true&w=majority');
+mongoose.connect("mongodb://localhost27017/pokemongo", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to MongoDB...");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 
 module.exports = router;
