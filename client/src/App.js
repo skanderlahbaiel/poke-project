@@ -14,10 +14,11 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import DeletePokemon from "./Components/DeletePokemon.js";
-import FilterPokemon from "./Components/FilterPokemon.js";
-import EditPokemon from "./Components/EditPokemon.js";
+
+
+
 import DeleteAllPokemons from './Components/DeleteAllPokemons.js';
+import Filter from './Components/Filter.js';
 function App() {
   return (
     <div>
@@ -30,9 +31,9 @@ function App() {
             <Route path="/AddNewPokemons" element={<AddNewPokemon2 />} />
             <Route path="/Viewpokemons" element={<PokemonList />} />
             {/* <Route path="/DeletePokemon" element={<DeleteAllPokemons />} /> */}
-            <Route path="/FilterPokemon" element={<FilterPokemon />} />
-            <Route path="/EditPokemon" element={<EditPokemon />} />
+           
             <Route path="/DeleteAllPokemon" element={<DeleteAllPokemons/>}/>
+            <Route path="/FilterByType" element={<Filter/>}/>
           </Routes>
         </div>
       </Router>

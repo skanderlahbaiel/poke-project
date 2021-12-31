@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import DeletePokemon from "./DeletePokemon.js";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 function PokemonList() {
   const [listOfPokemons, setListOfPokemons] = useState([]);
   useEffect(() => {
@@ -17,6 +18,10 @@ function PokemonList() {
       setListOfPokemons(response.data);
     });
   }, []);
+
+const [Number, setNumber] = useState(0);
+
+
 
 const deleteOnePokemon = (number) => {
 
@@ -26,6 +31,9 @@ const deleteOnePokemon = (number) => {
   })
 
 } 
+const EditPokemon = (number) => {
+  axios.put(`http://localhost:7500/pokemons/${number}`,{Number: Number})
+}
 
   const navStyle = {
     color: "white",
@@ -33,6 +41,8 @@ const deleteOnePokemon = (number) => {
 
   return (
     <div>
+      <Link to="/FilterByType">Filter Pokemons</Link>
+      <Link to="/">Home Page</Link>
       <h1> List Of Pokemons</h1>
 
       <div className="Poke">
@@ -41,11 +51,14 @@ const deleteOnePokemon = (number) => {
           console.log("test");
           return (
             <div>
+             
               {" "}
               <p>{pokemon.name}</p> <p>{pokemon.number}</p>{" "}
               <p>{pokemon.types}</p> <img src={pokemon.imageUrl} alt="" />
               <p>{pokemon.imageUrl}</p>
-              <button onClick={deleteOnePokemon(pokemon.number)}>Delete your pokemon </button>
+              <button onClick={()=>deleteOnePokemon(pokemon.number)}>Delete your pokemon </button>
+              <button onClick={()=>EditPokemon(pokemon.number)}>Update your pokemon </button>
+              <input type="number" placeholder="number" onChange={(event)=> {setNumber(event.target.value)}} />
 
             </div>
           );
@@ -72,10 +85,9 @@ const deleteOnePokemon = (number) => {
           return <p>{pokemon.imgageUrl}</p>;
         })}
       </div>
-      <Link to="/DeleteOnePokemon">Delete the Pokemon</Link>
+     
 
-      <Link to="/FilterPokemon">Filter Pokemons</Link>
-      <Link to="/">Home Page</Link>
+      
     </div>
   );
 }
