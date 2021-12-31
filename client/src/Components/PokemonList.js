@@ -18,6 +18,15 @@ function PokemonList() {
     });
   }, []);
 
+const deleteOnePokemon = (number) => {
+
+  axios.delete (`http://localhost:7500/pokemons/${number}`)
+  .then(()=> {
+
+  })
+
+} 
+
   const navStyle = {
     color: "white",
   };
@@ -36,6 +45,8 @@ function PokemonList() {
               <p>{pokemon.name}</p> <p>{pokemon.number}</p>{" "}
               <p>{pokemon.types}</p> <img src={pokemon.imageUrl} alt="" />
               <p>{pokemon.imageUrl}</p>
+              <button onClick={deleteOnePokemon(pokemon.number)}>Delete your pokemon </button>
+
             </div>
           );
         })}
@@ -61,7 +72,7 @@ function PokemonList() {
           return <p>{pokemon.imgageUrl}</p>;
         })}
       </div>
-      <Link to="/DeletePokemon">Delete the Pokemon</Link>
+      <Link to="/DeleteOnePokemon">Delete the Pokemon</Link>
 
       <Link to="/FilterPokemon">Filter Pokemons</Link>
       <Link to="/">Home Page</Link>

@@ -1,77 +1,78 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
 
+import axios from "axios";
 
-class EditPokemon extends Component {
-    constructor(props) {
-        super(props)
-  
-        this.state = {
-            Number: "",
-            Name: "",
-            Type: "",
-            imgUrl: "",
-  
-  
-        }
-        this.handleSubmit=this.handleSubmit.bind(this)
-    }
-  
-    numberhandler = (event) => {
-        this.setState({
-            Number: event.target.value
-        })
-    }
-    namehandler = (event) => {
-        this.setState({
-            Name: event.target.value
-        })
-    }
-   typehandler = (event) => {
-        this.setState({
-            Type: event.target.value
-        })
-    }
-  
-    imgurlhandler = (event) => {
-        this.setState({
-            imgUrl: event.target.value
-        })
-    }
-  
-    handleSubmit = (event) => {
-        alert(`${this.state.firstName} ${this.state.lastName}  Edited Successfully !!!!`)
-        console.log(this.state);
-        this.setState({
-            Number: "",
-            Name: "",
-            Type: '',
-            imgUrl: "",
-        })
-     event.preventDefault()
-        
-    }
-  
-  
-  
-  
-    render() {
+function EditPokemon() {
+  const [name, setName] = useState("");
+  const [types, setType] = useState([]);
+  const [number, setNumber] = useState(0);
+  const [imageUrl, setimageUrl] = useState("");
+
+  const [ListOfPokemons, setListOfPokemons] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get("http://localhost:7500/pokemons").then((response) => {
+      setListOfPokemons(response.data);
+    });
+  }, []);
+  const createPokemon = () => {
+    axios
+      .post("http://localhost:7500/pokemons/pokemon", {
+        name,
+        number,
+        types,
+        imageUrl,
+      })
+      .then((response) => {
+        setListOfPokemons([...ListOfPokemons, name, number, types, imageUrl]);
+        setLoading(false);
+      });
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="name"
+        onChange={(event) => {
+          setName(event.target.value);
+        }}
+      />
+      <input
+        type="Number"
+        placeholder="number"
+        onChange={(event) => {
+          setNumber(event.target.value);
+        }}
+      />
+      <input
+        type="text"
+        placeholder="types"
+        onChange={(event) => {
+          setType(event.target.value);
+        }}
+      />
+      <input
+        type="text"
+        placeholder="imageUrl"
+        onChange={(event) => {
+          setimageUrl(event.target.value);
+        }}
+      />
+      <button onClick={createPokemon}>Add pokemon</button>
+      {/* {ListOfPokemons.map((pokemon) => {
         return (
-            <div>
-  
-  <form onSubmit={this.handleSubmit}>
-                    <h1>Edit your Pokemon!</h1>
-                    <label>Number :</label> <input type="text" value={this.state.Number} onChange={this.numberhandler} placeholder="Number..." /><br />
-                    <label>Name :</label> <input type="text" value={this.state.Name} onChange={this.namehandler} placeholder="Name..." /><br />
-                    <label>Type :</label> <input type="text" value={this.state.Type} onChange={this.typehandler} placeholder="Type..." /><br />
-                    <label>imgUrl :</label> <input type="text" value={this.state.imgUrl} onChange={this.imgurlhandler} placeholder="imgUrl..." /><br />
-                    <input type="submit" value="Submit" />
-                </form>
-                <Link  to="/">Home</Link>
-            </div>
-            
-        )
-    }
-  }
-  
-  export default EditPokemon
+          <div>
+            {" "}
+            <p>{pokemon.name}</p> <p>{pokemon.number}</p> <p>{pokemon.types}</p>{" "}
+            <img src={pokemon.imageUrl} alt="" />
+            <p>{pokemon.imageUrl}</p>
+          </div>
+        );
+      })} */}
+    </div>
+  );
+}
+
+export default EditPokemon;

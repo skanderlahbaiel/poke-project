@@ -17,21 +17,22 @@ import {
 import DeletePokemon from "./Components/DeletePokemon.js";
 import FilterPokemon from "./Components/FilterPokemon.js";
 import EditPokemon from "./Components/EditPokemon.js";
-
+import DeleteAllPokemons from './Components/DeleteAllPokemons.js';
 function App() {
   return (
     <div>
-      {/* <AddNewPokemon2 /> */}
-      {/* <PokemonList /> */}
-      <Router>
+     
+      
+       <Router>
         <div className="App">
-          <Navbar />
+        <Navbar />
           <Routes>
             <Route path="/AddNewPokemons" element={<AddNewPokemon2 />} />
             <Route path="/Viewpokemons" element={<PokemonList />} />
-            <Route path="/DeletePokemon" element={<DeletePokemon />} />
+            {/* <Route path="/DeletePokemon" element={<DeleteAllPokemons />} /> */}
             <Route path="/FilterPokemon" element={<FilterPokemon />} />
             <Route path="/EditPokemon" element={<EditPokemon />} />
+            <Route path="/DeleteAllPokemon" element={<DeleteAllPokemons/>}/>
           </Routes>
         </div>
       </Router>

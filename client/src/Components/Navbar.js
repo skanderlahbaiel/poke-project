@@ -1,6 +1,6 @@
 import React from "react";
 
-import AddNewPokemon from "./AddNewPokemon.js";
+
 
 import { Link } from "react-router-dom";
 
@@ -26,6 +26,10 @@ function Navbar() {
         <Link style={navStyle} to="/EditPokemon">
           Edit a Pokemon
         </Link>
+        <Link style={navStyle} to="/DeleteAllPokemon">
+          Delete All Pokemons
+        </Link>
+        
       </ul>
     </nav>
   );
