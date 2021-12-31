@@ -6,7 +6,7 @@ import Navbar from './Components/Navbar.js';
 
 import PokemonList from './Components/PokemonList.js';
 
-import AddNewPokemon from './Components/AddNewPokemon.js';
+import AddNewPokemon2 from './Components/AddNewPokemon2.js';
 
 import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom';
 import DeletePokemon from './Components/DeletePokemon.js';
@@ -17,13 +17,14 @@ import EditPokemon from './Components/EditPokemon.js';
 
 function App() {
   return (
-    
-<Router>
+    <div>
+    <AddNewPokemon2/>
+{/* <Router>
     <div className="App">
     
      <Navbar/>
      <Routes>
-     <Route path='/AddNewPokemons' element={<AddNewPokemon/>}/>
+     <Route path='/AddNewPokemons' element={<AddNewPokemon2/>}/>
      <Route path='/Viewpokemons' element={<PokemonList/>}/>
      <Route path='/DeletePokemon' element={<DeletePokemon/>}/>
      <Route path='/FilterPokemon' element={<FilterPokemon/>}/>
@@ -36,7 +37,8 @@ function App() {
    
    
 </div>  
-</Router>
+</Router> */}
+</div>
 
   );
 }

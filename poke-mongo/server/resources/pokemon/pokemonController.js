@@ -19,7 +19,13 @@ exports.get_pokemon = function(req, res, next) {
     });
     };
 
-exports.post_pokemon = function(req, res, next) {
+exports.post_pokemon =  function(req, res, next) { 
+    const user = req.body 
+    const newpokemon = new Pokemon(user)
+     newpokemon.save()
+    res.json()
+    
+    
     const pokemon = new Pokemon({
         _id: new mongoose.Types.ObjectId(),
         number: req.body.number,

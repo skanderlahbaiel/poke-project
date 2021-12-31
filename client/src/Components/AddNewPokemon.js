@@ -17,30 +17,30 @@ class AddNewPokemon extends Component {
       this.handleSubmit=this.handleSubmit.bind(this)
   }
 
-  firsthandler = (event) => {
+  Numberhandler = (event) => {
       this.setState({
           Number: event.target.value
       })
   }
-  lasthandler = (event) => {
+  Namehandler = (event) => {
       this.setState({
           Name: event.target.value
       })
   }
-  passwordhandler = (event) => {
+  Typehandler = (event) => {
       this.setState({
           Type: event.target.value
       })
   }
 
-  genderhandler = (event) => {
+  imgUrlhandler = (event) => {
       this.setState({
           imgUrl: event.target.value
       })
   }
 
   handleSubmit = (event) => {
-      alert(`${this.state.firstName} ${this.state.lastName}  Registered Successfully !!!!`)
+      alert(`${this.state.firstName} ${this.state.lastName}  Added Successfully !!!!`)
       console.log(this.state);
       this.setState({
           Number: "",
@@ -61,10 +61,10 @@ class AddNewPokemon extends Component {
 
               <form onSubmit={this.handleSubmit}>
                   <h1>Add your Pokemon!</h1>
-                  <label>Number :</label> <input type="text" value={this.state.Number} onChange={this.firsthandler} placeholder="Number..." /><br />
-                  <label>Name :</label> <input type="text" value={this.state.Name} onChange={this.lasthandler} placeholder="Name..." /><br />
-                  <label>Type :</label> <input type="text" value={this.state.Type} onChange={this.passwordhandler} placeholder="Type..." /><br />
-                  <label>imgUrl :</label> <input type="text" value={this.state.imgUrl} onChange={this.passwordhandler} placeholder="imgUrl..." /><br />
+                  <label>Number :</label> <input type="text" value={this.state.Number} onChange={this.Numberhandler} placeholder="Number..." /><br />
+                  <label>Name :</label> <input type="text" value={this.state.Name} onChange={this.Namehandler} placeholder="Name..." /><br />
+                  <label>Type :</label> <input type="text" value={this.state.Type} onChange={this.Typehandler} placeholder="Type..." /><br />
+                  <label>imgUrl :</label> <input type="text" value={this.state.imgUrl} onChange={this.imgUrlhandler} placeholder="imgUrl..." /><br />
                   <input type="submit" value="Submit" />
               </form>
               <Link  to="/">Home</Link>
